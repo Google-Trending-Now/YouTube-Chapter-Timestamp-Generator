@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Chapter Timestamp Generator – Format Online Free</title>
+  <meta name="description" content="Free YouTube chapter timestamp generator to build, sort, validate, and format YouTube timestamps online in seconds for your video descriptions.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Inline SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23dc2626'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23ffffff' stroke-width='4' opacity='0.28'/%3E%3Cpath d='M26 21.5L45 32L26 42.5V21.5Z' fill='%23ffffff'/%3E%3Cpath d='M32 12A20 20 0 0 1 52 32' fill='none' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="YouTube Chapter Timestamp Generator – Format Online Free">
+  <meta property="og:description" content="Build, validate, sort, and format YouTube timestamps online into clean video chapters that meet every YouTube rule.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="YouTube Chapter Timestamp Generator">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="YouTube Chapter Timestamp Generator – Format Online Free">
+  <meta name="twitter:description" content="Free online tool to build, sort, validate, and format YouTube timestamps for video descriptions.">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "YouTube Chapter Timestamp Generator",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "A fast client-side YouTube chapter timestamp generator that helps creators build, validate, sort, and format YouTube timestamps online for video descriptions.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Interactive chapter row builder with drag and button reordering",
+      "Bulk paste parser to format messy notes into clean YouTube timestamps",
+      "Real-time validation for official YouTube chapter requirements",
+      "One-click chronological auto-sort and copy to clipboard"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why are my YouTube chapters not showing up on my video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YouTube hides chapters if any requirement is missed. Check that your first timestamp is 00:00, you have at least three chapters in ascending order, every chapter is at least 10 seconds long, and your channel has no active copyright or community guidelines strikes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do YouTube timestamps need to start at 00:00?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The very first timestamp in your video description must start at 00:00 (or 0:00). Without a zero timestamp at the top, YouTube treats the timestamps as regular jump links instead of scrub-bar chapters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I format YouTube timestamps online from rough editing notes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Switch to the Bulk Paste & Format tab in this tool, paste rough notes with dots, dashes, brackets, or timestamps at the end of a line, and click Format & Import Chapters to clean them into standard 00:00 Title lines."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should I format timestamps for videos longer than one hour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use MM:SS for timestamps under an hour (such as 00:00 or 45:10) and HH:MM:SS once you pass the 60-minute mark (such as 01:05:30). Keep the first entry at 00:00 so YouTube triggers chapters reliably."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do YouTube chapters help videos appear in Google Search?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Clear, descriptive chapter titles give Google explicit labels for Key Moments in search results, helping viewers jump directly to the exact segment that answers their query."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent: #dc2626;
+      --accent-hover: #b91c1c;
+      --accent-soft: #fef2f2;
+      --accent-border: #fecaca;
+      --success: #15803d;
+      --success-bg: #f0fdf4;
+      --success-border: #bbf7d0;
+      --warning: #b45309;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 12px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top Bar — 3-zone single row */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 64px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .site-nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .site-nav a:hover {
+      color: var(--text);
+      border-bottom-color: var(--border-strong);
+    }
+
+    .header-cta {
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn-primary.is-copied {
+      background-color: var(--success);
+      border-color: var(--success);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: var(--surface-subtle);
+      border-color: #94a3b8;
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--text-secondary);
+      border-color: transparent;
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      background-color: var(--surface-subtle);
+      color: var(--text);
+    }
+
+    .btn-danger-ghost {
+      background-color: transparent;
+      color: var(--text-secondary);
+      border-color: var(--border);
+    }
+
+    .btn-danger-ghost:hover:not(:disabled) {
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    .btn-sm {
+      min-height: 36px;
+      padding: 6px 12px;
+      font-size: 0.825rem;
+    }
+
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-icon:hover:not(:disabled) {
+      background-color: var(--surface-subtle);
+      color: var(--text);
+    }
+
+    .btn-icon.btn-icon-danger:hover:not(:disabled) {
+      background-color: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .btn-icon:disabled {
+      opacity: 0.32;
+      cursor: not-allowed;
+    }
+
+    /* Main Hero & Tool Section (Above the Fold) */
+    .tool-section {
+      padding: 28px 0 48px;
+    }
+
+    .hero-head {
+      margin-bottom: 22px;
+      max-width: 780px;
+    }
+
+    .hero-head h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.65rem, 2.6vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      text-wrap: balance;
+    }
+
+    .hero-head p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* 2-Column Workspace Grid */
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.38fr) minmax(320px, 0.92fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .panel-meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Segmented Mode Tabs */
+    .mode-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: var(--surface-subtle);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .mode-tab {
+      min-height: 34px;
+      padding: 6px 14px;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .mode-tab:hover {
+      color: var(--text);
+    }
+
+    .mode-tab[aria-selected="true"] {
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Undo Banner */
+    .undo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 20px;
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .undo-bar[hidden] {
+      display: none;
+    }
+
+    /* Chapter Builder Body */
+    .builder-body {
+      padding: 16px 20px 20px;
+    }
+
+    .builder-col-headers {
+      display: grid;
+      grid-template-columns: 24px 116px minmax(0, 1fr) 64px 112px;
+      gap: 10px;
+      align-items: center;
+      padding: 0 4px 10px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .col-duration {
+      text-align: right;
+    }
+
+    .col-actions {
+      text-align: right;
+    }
+
+    .chapter-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .chapter-row {
+      display: grid;
+      grid-template-columns: 24px 116px minmax(0, 1fr) 64px 112px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      transition: background-color 0.12s ease;
+    }
+
+    .chapter-row:last-child {
+      border-bottom: 0;
+    }
+
+    .chapter-row:hover {
+      background: #fafcff;
+    }
+
+    .chapter-row.is-dragging {
+      opacity: 0.45;
+    }
+
+    .chapter-row.is-drag-over {
+      box-shadow: inset 0 2px 0 0 var(--accent);
+    }
+
+    .drag-handle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 36px;
+      color: #94a3b8;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .input-field {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.3;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .input-field::placeholder {
+      color: #94a3b8;
+    }
+
+    .input-field:hover {
+      border-color: #94a3b8;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+    }
+
+    .input-field.is-invalid {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    .input-time {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+    }
+
+    .row-duration {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .row-duration.is-short {
+      color: var(--warning);
+      font-weight: 600;
+    }
+
+    .row-duration.is-error {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .row-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 2px;
+    }
+
+    .builder-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+      margin-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+
+    .builder-hint {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* Bulk Paste Panel */
+    .bulk-body {
+      padding: 20px;
+    }
+
+    .bulk-label-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .bulk-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .bulk-sublabel {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .bulk-textarea {
+      width: 100%;
+      min-height: 220px;
+      padding: 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      resize: vertical;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .bulk-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+    }
+
+    .bulk-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .bulk-status {
+      font-size: 0.825rem;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bulk-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Right Column: Sticky Output & Validator */
+    .preview-column {
+      position: sticky;
+      top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .preview-body {
+      padding: 16px 20px 20px;
+    }
+
+    .output-box {
+      width: 100%;
+      min-height: 184px;
+      max-height: 340px;
+      overflow-y: auto;
+      margin: 0;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      font-variant-numeric: tabular-nums;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .output-box.is-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      padding: 28px 20px;
+    }
+
+    .preview-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .preview-actions .btn-primary {
+      flex: 1;
+    }
+
+    /* Real-Time Rules Validator */
+    .validator-panel {
+      padding: 16px 20px;
+    }
+
+    .validator-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      margin-bottom: 14px;
+    }
+
+    .validator-summary.is-valid {
+      background: var(--success-bg);
+      border-color: var(--success-border);
+      color: var(--success);
+    }
+
+    .validator-summary.is-warn {
+      background: var(--warning-bg);
+      border-color: var(--warning-border);
+      color: var(--warning);
+    }
+
+    .validator-summary.is-error {
+      background: var(--accent-soft);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    .validator-summary-main {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .rules-checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--text-secondary);
+    }
+
+    .rule-icon {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .rule-item.is-pass .rule-icon {
+      color: var(--success);
+    }
+
+    .rule-item.is-fail .rule-icon {
+      color: var(--accent);
+    }
+
+    .rule-item.is-warn .rule-icon {
+      color: var(--warning);
+    }
+
+    .rule-item.is-idle .rule-icon {
+      color: var(--text-muted);
+    }
+
+    .rule-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .rule-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .rule-detail {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .rule-item.is-fail .rule-detail {
+      color: #991b1b;
+    }
+
+    .rule-item.is-warn .rule-detail {
+      color: #92400e;
+    }
+
+    .quick-fix-btn {
+      margin-top: 6px;
+      padding: 4px 10px;
+      min-height: 30px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+    }
+
+    .quick-fix-btn:hover {
+      background: var(--surface-subtle);
+      border-color: #94a3b8;
+    }
+
+    /* Editorial / Guide Content Below the Fold */
+    .guide-wrapper {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 56px 0 64px;
+    }
+
+    .guide-article {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .guide-section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .guide-section:first-child {
+      padding-top: 0;
+    }
+
+    .guide-section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .guide-section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.3rem, 2vw, 1.55rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .guide-section h3 {
+      margin: 22px 0 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .guide-section p {
+      margin: 0 0 14px;
+      color: var(--text-secondary);
+      max-width: 72ch;
+    }
+
+    .guide-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .guide-list {
+      margin: 12px 0 16px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      max-width: 72ch;
+    }
+
+    .guide-list li {
+      margin-bottom: 8px;
+    }
+
+    .guide-list li strong {
+      color: var(--text);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .step-block {
+      padding: 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .step-num {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-block h3 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+    }
+
+    .step-block p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .example-compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .code-card {
+      padding: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .code-card-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .code-card pre {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* FAQ Accordion */
+    .faq-list {
+      margin-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+      color: var(--accent);
+    }
+
+    .faq-item p {
+      padding: 0 0 18px;
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      padding: 24px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 960px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-column {
+        position: static;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .header-inner {
+        gap: 10px;
+        min-height: 56px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .brand-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .header-cta .btn {
+        min-height: 36px;
+        padding: 6px 11px;
+        font-size: 0.8rem;
+      }
+
+      .site-nav {
+        display: none;
+      }
+
+      .tool-section {
+        padding: 20px 0 36px;
+      }
+
+      .workspace-grid > * {
+        min-width: 0;
+      }
+
+      .panel-header {
+        padding: 14px 16px;
+      }
+
+      .builder-body,
+      .bulk-body,
+      .preview-body,
+      .validator-panel {
+        padding: 14px 16px 16px;
+      }
+
+      .builder-col-headers {
+        display: none;
+      }
+
+      .chapter-row {
+        grid-template-columns: 104px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: 8px;
+        padding: 12px 0;
+      }
+
+      .drag-handle {
+        display: none;
+      }
+
+      .row-duration {
+        grid-column: 1 / 2;
+        text-align: left;
+      }
+
+      .row-actions {
+        grid-column: 2 / 3;
+      }
+
+      .input-field {
+        min-height: 44px;
+      }
+
+      .preview-actions .btn,
+      .builder-footer .btn,
+      .bulk-actions .btn {
+        min-height: 44px;
+      }
+
+      .btn-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .example-compare {
+        grid-template-columns: 1fr;
+      }
+
+      .mode-tabs {
+        width: 100%;
+      }
+
+      .mode-tab {
+        flex: 1;
+        text-align: center;
+        min-height: 40px;
+        padding: 6px 8px;
+        font-size: 0.82rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" id="top">
+        <svg class="brand-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#dc2626"/>
+          <circle cx="32" cy="32" r="20" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.28"/>
+          <path d="M26 21.5L45 32L26 42.5V21.5Z" fill="#ffffff"/>
+          <path d="M32 12A20 20 0 0 1 52 32" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>YouTube Chapter Generator</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="#how-to-use">How to Use</a>
+        <a href="#format-online">Bulk Format</a>
+        <a href="#chapter-rules">Chapter Rules</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-cta">
+        <button type="button" class="btn btn-secondary btn-sm" id="header-example-btn">Load Example</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="tool-section" aria-labelledby="main-heading">
+      <div class="container">
+        <div class="hero-head">
+          <h1 id="main-heading">YouTube Chapter Timestamp Generator</h1>
+          <p>Build, reorder, validate, and format YouTube timestamps online in seconds. Everything runs locally in your browser with instant YouTube rule checks.</p>
+        </div>
+
+        <div class="workspace-grid">
+          <!-- Left Column: Interactive Builder & Bulk Formatter -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="mode-tabs" role="tablist" aria-label="Editor mode">
+                <button type="button" role="tab" id="tab-builder" class="mode-tab" aria-selected="true" aria-controls="panel-builder">
+                  Chapter Builder
+                </button>
+                <button type="button" role="tab" id="tab-bulk" class="mode-tab" aria-selected="false" aria-controls="panel-bulk">
+                  Bulk Paste &amp; Format
+                </button>
+              </div>
+
+              <div class="toolbar-actions" id="builder-toolbar">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-sort" title="Sort timestamps chronologically">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/>
+                  </svg>
+                  Auto-Sort
+                </button>
+              </div>
+            </div>
+
+            <div class="undo-bar" id="undo-bar" hidden>
+              <span>Cleared all chapters.</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-undo">Undo Clear</button>
+            </div>
+
+            <!-- Tab Panel 1: Interactive Row Builder -->
+            <div id="panel-builder" role="tabpanel" aria-labelledby="tab-builder" class="builder-body">
+              <div class="builder-col-headers" aria-hidden="true">
+                <span></span>
+                <span>Time (MM:SS)</span>
+                <span>Chapter Title</span>
+                <span class="col-duration">Length</span>
+                <span class="col-actions">Order / Delete</span>
+              </div>
+
+              <ul class="chapter-list" id="chapter-list" aria-label="YouTube chapters"></ul>
+
+              <div class="builder-footer">
+                <button type="button" class="btn btn-secondary" id="btn-add-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                    <path d="M12 5v14"/><path d="M5 12h14"/>
+                  </svg>
+                  Add Chapter
+                </button>
+                <span class="builder-hint">Tip: Press Enter inside any title to add the next chapter.</span>
+              </div>
+            </div>
+
+            <!-- Tab Panel 2: Bulk Paste & Auto-Format -->
+            <div id="panel-bulk" role="tabpanel" aria-labelledby="tab-bulk" class="bulk-body" hidden>
+              <div class="bulk-label-row">
+                <label for="bulk-input" class="bulk-label">Paste rough timestamps or editing notes</label>
+                <span class="bulk-sublabel">Accepts dots, dashes, brackets, or end-of-line times</span>
+              </div>
+
+              <textarea
+                id="bulk-input"
+                class="bulk-textarea"
+                spellcheck="false"
+                placeholder="0.00 intro&#10;1:25 - main topic&#10;[03:40] camera settings walkthrough&#10;05.10 lighting breakdown&#10;Final thoughts &amp; gear list 08:30"
+              ></textarea>
+
+              <div class="bulk-footer">
+                <span class="bulk-status" id="bulk-status" aria-live="polite">Paste notes above to detect timestamps.</span>
+                <div class="bulk-actions">
+                  <button type="button" class="btn btn-ghost btn-sm" id="btn-bulk-sample">Load Messy Sample</button>
+                  <button type="button" class="btn btn-primary" id="btn-bulk-apply">Format &amp; Import Chapters</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Live Description Preview + Rules Validator -->
+          <aside class="preview-column" aria-label="Live preview and YouTube validation">
+            <div class="panel">
+              <div class="panel-header">
+                <h2 class="panel-title">YouTube Description Preview</h2>
+                <span class="panel-meta" id="preview-meta">0 chapters</span>
+              </div>
+
+              <div class="preview-body">
+                <pre class="output-box is-empty" id="output-preview" tabindex="0" aria-label="Formatted YouTube chapter timestamps"></pre>
+
+                <div class="preview-actions">
+                  <button type="button" class="btn btn-primary" id="btn-copy" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    <span id="btn-copy-label">Copy to Clipboard</span>
+                  </button>
+                  <button type="button" class="btn btn-danger-ghost" id="btn-clear">Clear All</button>
+                </div>
+                <span class="sr-only" id="copy-live-region" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="panel validator-panel" aria-labelledby="validator-heading">
+              <h2 class="sr-only" id="validator-heading">YouTube Chapter Rules Check</h2>
+              <div class="validator-summary" id="validator-summary" role="status" aria-live="polite">
+                <span class="validator-summary-main" id="validator-summary-text">Add timestamps to check YouTube rules</span>
+              </div>
+              <ul class="rules-checklist" id="rules-checklist"></ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practical Guide & SEO Content -->
+    <div class="guide-wrapper">
+      <article class="container guide-article">
+        <section class="guide-section" id="how-to-use">
+          <h2>How to Use This YouTube Chapter Timestamp Generator</h2>
+          <p>Adding video chapters breaks long tutorials, podcasts, and reviews into clickable sections on the YouTube progress bar. Viewers find the exact answer they want faster, which helps watch time and keeps people from clicking away early.</p>
+          <p>Use the interactive builder above when you are writing chapters alongside your timeline, or switch to Bulk Paste when you already have rough notes from an editor or script.</p>
+
+          <div class="steps-grid">
+            <div class="step-block">
+              <span class="step-num">01</span>
+              <h3>Enter your start times</h3>
+              <p>Type timestamps in <code>MM:SS</code> or <code>HH:MM:SS</code> format and give each section a short, searchable title. Start the first row at <code>00:00</code>.</p>
+            </div>
+            <div class="step-block">
+              <span class="step-num">02</span>
+              <h3>Check the rule validator</h3>
+              <p>Watch the YouTube rules panel on the right. Fix any missing <code>00:00</code> start, out-of-order entries, or chapters shorter than 10 seconds before publishing.</p>
+            </div>
+            <div class="step-block">
+              <span class="step-num">03</span>
+              <h3>Copy into YouTube Studio</h3>
+              <p>Click <strong>Copy to Clipboard</strong> and paste the list directly into your video description box in YouTube Studio. Chapters appear automatically after you save.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="format-online">
+          <h2>How to Format YouTube Timestamps Online From Rough Notes</h2>
+          <p>Most creators jot down timestamps in a notepad, Google Doc, or editing software markers using inconsistent punctuation—like periods instead of colons, extra dashes, or brackets around the timecode. Cleaning those lines by hand wastes time before upload.</p>
+          <p>Open the <strong>Bulk Paste &amp; Format</strong> tab to format YouTube timestamps online in one step. The parser automatically strips stray hyphens, pipes, brackets, and dot separators, pads single-digit seconds, and moves end-of-line timestamps to the front.</p>
+
+          <div class="example-compare">
+            <div class="code-card">
+              <span class="code-card-label">Messy pasted notes</span>
+              <pre>0.00 intro
+1:25 - camera settings
+[03:40] audio chain setup
+05.10 lighting tips
+Final thoughts 08:30</pre>
+            </div>
+            <div class="code-card">
+              <span class="code-card-label">Clean YouTube output</span>
+              <pre>00:00 intro
+01:25 camera settings
+03:40 audio chain setup
+05:10 lighting tips
+08:30 Final thoughts</pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="guide-section" id="chapter-rules">
+          <h2>Official YouTube Chapter Rules</h2>
+          <p>YouTube only turns description timestamps into progress-bar chapters when your list follows three strict rules. If even one rule fails, the timestamps still work as clickable blue links, but the segmented scrubber bar will not appear.</p>
+          <ul class="guide-list">
+            <li><strong>Start with 00:00:</strong> Your very first chapter must begin at <code>00:00</code> (or <code>0:00</code>). Even if your intro is short, label it something clear like <code>00:00 Intro</code> or <code>00:00 Overview</code>.</li>
+            <li><strong>Include at least 3 timestamps in ascending order:</strong> You need a minimum of three chapters listed from earliest to latest. Use the <strong>Auto-Sort</strong> button if you added notes out of order while reviewing a cut.</li>
+            <li><strong>Keep every chapter at least 10 seconds long:</strong> Any gap under 10 seconds between consecutive timestamps disables chapters for the whole video. Our builder displays each chapter's duration so short gaps stand out right away.</li>
+          </ul>
+
+          <h3>Why Clear Chapter Titles Matter for Google Search</h3>
+          <p>Google uses YouTube chapter titles to build Key Moments cards right inside search results. Descriptive titles like <code>04:15 Fixing Microphone Echo</code> perform far better than vague labels like <code>04:15 Part 2</code> because searchers immediately see which segment solves their problem.</p>
+        </section>
+
+        <section class="guide-section" id="faq">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>Why are my YouTube chapters not showing up on my video?</summary>
+              <p>Double-check three things first: the top timestamp is <code>00:00</code>, you have at least three chapters sorted chronologically, and every chapter lasts at least 10 seconds. If all three pass and chapters still do not appear, check YouTube Studio to confirm automatic chapters are enabled and your channel has no active strikes.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Do YouTube timestamps need to start at 00:00?</summary>
+              <p>Yes. Without <code>00:00</code> as the very first timestamp in your description, YouTube will not split the video progress bar into chapters. If your first note starts later, use the quick fix button in the validator to insert a <code>00:00 Intro</code> line.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I put timestamps anywhere in my YouTube description?</summary>
+              <p>Yes. You can place your chapter block below your main summary, affiliate links, or sponsor notes. Just keep all chapter lines grouped together on consecutive lines with one timestamp per line.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>How do I format timestamps for videos over one hour long?</summary>
+              <p>Use <code>MM:SS</code> for anything under 60 minutes (such as <code>00:00</code> and <code>54:20</code>) and switch to <code>HH:MM:SS</code> once you cross the hour mark (such as <code>01:02:15</code>). This generator validates and sorts mixed minute and hour formats automatically.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Does this YouTube chapter timestamp generator store my video notes?</summary>
+              <p>No. Everything runs locally in your browser with plain JavaScript. Your timestamps and chapter titles never leave your device.</p>
+            </details>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>YouTube Chapter Timestamp Generator — Free client-side creator utility.</span>
+      <div class="footer-links">
+        <a href="#top">Back to tool</a>
+        <a href="#chapter-rules">YouTube rules</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* =====================================================================
+         Pure Chapter Logic (parsing, formatting, sorting, YouTube validation)
+         ===================================================================== */
+
+      function parseTimestamp(raw) {
+        if (typeof raw !== "string") return null;
+        var trimmed = raw.trim();
+        if (!trimmed) return null;
+
+        // Accept ":" or "." separators, optionally wrapped in [] or ()
+        var cleaned = trimmed.replace(/^[\[\(]+|[\]\)]+$/g, "").trim();
+        if (!/^\d{1,3}[:.]\d{1,2}(?:[:.]\d{1,2})?$/.test(cleaned)) {
+          return null;
+        }
+
+        var parts = cleaned.split(/[:.]/).map(function (p) {
+          return parseInt(p, 10);
+        });
+
+        if (parts.some(function (n) { return isNaN(n) || n < 0; })) {
+          return null;
+        }
+
+        if (parts.length === 2) {
+          var mins = parts[0];
+          var secs = parts[1];
+          if (secs >= 60) return null;
+          return mins * 60 + secs;
+        }
+
+        if (parts.length === 3) {
+          var hrs = parts[0];
+          var m = parts[1];
+          var s = parts[2];
+          if (m >= 60 || s >= 60) return null;
+          return hrs * 3600 + m * 60 + s;
+        }
+
+        return null;
+      }
+
+      function formatSeconds(totalSeconds) {
+        if (typeof totalSeconds !== "number" || !isFinite(totalSeconds) || totalSeconds < 0) {
+          return "";
+        }
+        var whole = Math.floor(totalSeconds);
+        var hrs = Math.floor(whole / 3600);
+        var mins = Math.floor((whole % 3600) / 60);
+        var secs = whole % 60;
+
+        var pad = function (n) {
+          return n < 10 ? "0" + n : String(n);
+        };
+
+        if (hrs > 0) {
+          return pad(hrs) + ":" + pad(mins) + ":" + pad(secs);
+        }
+        return pad(mins) + ":" + pad(secs);
+      }
+
+      function formatDurationLabel(seconds) {
+        if (typeof seconds !== "number" || !isFinite(seconds)) return "—";
+        if (seconds < 0) return "Order err";
+        if (seconds === 0) return "0s";
+        var hrs = Math.floor(seconds / 3600);
+        var mins = Math.floor((seconds % 3600) / 60);
+        var secs = seconds % 60;
+        if (hrs > 0) {
+          return hrs + "h " + mins + "m";
+        }
+        if (mins > 0) {
+          return secs > 0 ? mins + "m " + secs + "s" : mins + "m";
+        }
+        return secs + "s";
+      }
+
+      function cleanTitle(rawTitle) {
+        if (typeof rawTitle !== "string") return "";
+        return rawTitle
+          .replace(/^[\s\-–—:|•*·>.,]+/, "")
+          .replace(/[\s\-–—:|•*·]+$/, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function parseBulkText(text) {
+        if (typeof text !== "string" || !text.trim()) {
+          return { chapters: [], skippedLines: 0 };
+        }
+
+        var lines = text.split(/\r?\n/);
+        var chapters = [];
+        var skippedLines = 0;
+
+        var leadingPattern = /^(?:[-*•]\s*|\d+[.)]\s+)?[\[\(]?(\d{1,3}[:.]\d{1,2}(?:[:.]\d{1,2})?)[\]\)]?(?:\s+|$|[\s\-–—:|]+)/;
+        var trailingPattern = /^(.*?)[\s\-–—:|]*[\[\(]?(\d{1,3}[:.]\d{1,2}(?:[:.]\d{1,2})?)[\]\)]?\s*$/;
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) continue;
+
+          var matchedTime = null;
+          var matchedTitle = "";
+
+          var leadMatch = line.match(leadingPattern);
+          if (leadMatch && parseTimestamp(leadMatch[1]) !== null) {
+            matchedTime = leadMatch[1];
+            matchedTitle = cleanTitle(line.slice(leadMatch[0].length));
+          } else {
+            var trailMatch = line.match(trailingPattern);
+            if (trailMatch && parseTimestamp(trailMatch[2]) !== null) {
+              matchedTime = trailMatch[2];
+              matchedTitle = cleanTitle(trailMatch[1].replace(/^(?:[-*•]\s*|\d+[.)]\s+)/, ""));
+            }
+          }
+
+          if (matchedTime !== null) {
+            var seconds = parseTimestamp(matchedTime);
+            chapters.push({
+              time: formatSeconds(seconds),
+              title: matchedTitle || "Untitled Chapter"
+            });
+          } else {
+            skippedLines++;
+          }
+        }
+
+        return { chapters: chapters, skippedLines: skippedLines };
+      }
+
+      function sortChaptersChronologically(chapters) {
+        return chapters
+          .map(function (ch, idx) {
+            return {
+              item: ch,
+              idx: idx,
+              sec: parseTimestamp(ch.time)
+            };
+          })
+          .sort(function (a, b) {
+            if (a.sec === null && b.sec === null) return a.idx - b.idx;
+            if (a.sec === null) return 1;
+            if (b.sec === null) return -1;
+            if (a.sec !== b.sec) return a.sec - b.sec;
+            return a.idx - b.idx;
+          })
+          .map(function (entry) {
+            return entry.item;
+          });
+      }
+
+      function validateChapters(chapters) {
+        var activeRows = [];
+        var invalidTimeIndices = [];
+        var missingTitleIndices = [];
+
+        for (var i = 0; i < chapters.length; i++) {
+          var timeRaw = (chapters[i].time || "").trim();
+          var titleRaw = (chapters[i].title || "").trim();
+          if (!timeRaw && !titleRaw) continue;
+
+          var sec = parseTimestamp(timeRaw);
+          if (sec === null) {
+            invalidTimeIndices.push(i);
+          } else {
+            if (!titleRaw) {
+              missingTitleIndices.push(i);
+            }
+            activeRows.push({
+              index: i,
+              sec: sec,
+              formattedTime: formatSeconds(sec),
+              title: titleRaw
+            });
+          }
+        }
+
+        var hasAnyInput = activeRows.length > 0 || invalidTimeIndices.length > 0;
+        var startsAtZero = activeRows.length > 0 && activeRows[0].sec === 0;
+        var hasMinCount = activeRows.length >= 3;
+
+        var outOfOrder = [];
+        var duplicateTimes = [];
+        var shortChapters = [];
+        var durationsByIndex = {};
+
+        for (var j = 0; j < activeRows.length - 1; j++) {
+          var curr = activeRows[j];
+          var next = activeRows[j + 1];
+          var diff = next.sec - curr.sec;
+          durationsByIndex[curr.index] = diff;
+
+          if (diff < 0) {
+            outOfOrder.push({
+              index: next.index,
+              time: next.formattedTime,
+              prevTime: curr.formattedTime
+            });
+          } else if (diff === 0) {
+            duplicateTimes.push({
+              index: next.index,
+              time: next.formattedTime
+            });
+          } else if (diff < 10) {
+            shortChapters.push({
+              index: curr.index,
+              chapterNumber: j + 1,
+              title: curr.title || curr.formattedTime,
+              duration: diff
+            });
+          }
+        }
+
+        var isAscending = outOfOrder.length === 0 && duplicateTimes.length === 0;
+        var minDurationMet = activeRows.length >= 2 && shortChapters.length === 0 && isAscending;
+        var allRulesPassed =
+          hasAnyInput &&
+          invalidTimeIndices.length === 0 &&
+          missingTitleIndices.length === 0 &&
+          startsAtZero &&
+          hasMinCount &&
+          isAscending &&
+          minDurationMet;
+
+        return {
+          hasAnyInput: hasAnyInput,
+          validCount: activeRows.length,
+          activeRows: activeRows,
+          invalidTimeIndices: invalidTimeIndices,
+          missingTitleIndices: missingTitleIndices,
+          startsAtZero: startsAtZero,
+          hasMinCount: hasMinCount,
+          isAscending: isAscending,
+          outOfOrder: outOfOrder,
+          duplicateTimes: duplicateTimes,
+          shortChapters: shortChapters,
+          minDurationMet: minDurationMet,
+          durationsByIndex: durationsByIndex,
+          allRulesPassed: allRulesPassed
+        };
+      }
+
+      function buildDescriptionOutput(chapters) {
+        var lines = [];
+        for (var i = 0; i < chapters.length; i++) {
+          var sec = parseTimestamp(chapters[i].time);
+          var title = (chapters[i].title || "").trim();
+          if (sec === null) continue;
+          lines.push(formatSeconds(sec) + (title ? " " + title : ""));
+        }
+        return lines.join("\n");
+      }
+
+      // Expose pure logic hook for automated verification tests without affecting browser UX
+      if (typeof globalThis !== "undefined") {
+        globalThis.__YTChapterLogic = {
+          parseTimestamp: parseTimestamp,
+          formatSeconds: formatSeconds,
+          formatDurationLabel: formatDurationLabel,
+          cleanTitle: cleanTitle,
+          parseBulkText: parseBulkText,
+          sortChaptersChronologically: sortChaptersChronologically,
+          validateChapters: validateChapters,
+          buildDescriptionOutput: buildDescriptionOutput
+        };
+      }
+
+      if (typeof document === "undefined") {
+        return;
+      }
+
+      /* =====================================================================
+         Application State & DOM Controller
+         ===================================================================== */
+
+      var EXAMPLE_CHAPTERS = [
+        { time: "00:00", title: "Intro & What We Are Building" },
+        { time: "00:45", title: "Camera & Lens Setup" },
+        { time: "03:15", title: "Key Light Placement for Small Rooms" },
+        { time: "06:40", title: "Audio Chain & Microphone Settings" },
+        { time: "10:25", title: "Export Settings for Sharp 4K Uploads" },
+        { time: "13:10", title: "Final Checklist & Gear Recap" }
+      ];
+
+      var MESSY_SAMPLE_TEXT = [
+        "0.00 intro and overview",
+        "1:15 - desk layout and monitor arm",
+        "[03:40] microphone and boom arm positioning",
+        "06.05 key light + softbox angle",
+        "Cable management tricks - 09:20",
+        "12.45 full budget breakdown and outro"
+      ].join("\n");
+
+      var nextRowId = 1;
+      function makeRow(time, title) {
+        return {
+          id: "ch-" + (nextRowId++),
+          time: time || "",
+          title: title || ""
+        };
+      }
+
+      function createDefaultRows() {
+        return [
+          makeRow("", ""),
+          makeRow("", ""),
+          makeRow("", "")
+        ];
+      }
+
+      var state = {
+        mode: "builder",
+        chapters: createDefaultRows(),
+        undoSnapshot: null,
+        draggedIndex: null
+      };
+
+      // DOM References
+      var tabBuilder = document.getElementById("tab-builder");
+      var tabBulk = document.getElementById("tab-bulk");
+      var panelBuilder = document.getElementById("panel-builder");
+      var panelBulk = document.getElementById("panel-bulk");
+      var builderToolbar = document.getElementById("builder-toolbar");
+      var chapterListEl = document.getElementById("chapter-list");
+      var btnAddRow = document.getElementById("btn-add-row");
+      var btnSort = document.getElementById("btn-sort");
+      var headerExampleBtn = document.getElementById("header-example-btn");
+      var bulkInput = document.getElementById("bulk-input");
+      var bulkStatus = document.getElementById("bulk-status");
+      var btnBulkSample = document.getElementById("btn-bulk-sample");
+      var btnBulkApply = document.getElementById("btn-bulk-apply");
+      var outputPreview = document.getElementById("output-preview");
+      var previewMeta = document.getElementById("preview-meta");
+      var btnCopy = document.getElementById("btn-copy");
+      var btnCopyLabel = document.getElementById("btn-copy-label");
+      var copyLiveRegion = document.getElementById("copy-live-region");
+      var btnClear = document.getElementById("btn-clear");
+      var undoBar = document.getElementById("undo-bar");
+      var btnUndo = document.getElementById("btn-undo");
+      var validatorSummary = document.getElementById("validator-summary");
+      var validatorSummaryText = document.getElementById("validator-summary-text");
+      var rulesChecklist = document.getElementById("rules-checklist");
+
+      var copyResetTimer = null;
+
+      function createSvgIcon(type) {
+        var ns = "http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(ns, "svg");
+        svg.setAttribute("width", "16");
+        svg.setAttribute("height", "16");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+        svg.setAttribute("stroke-width", "2.1");
+        svg.setAttribute("stroke-linecap", "round");
+        svg.setAttribute("stroke-linejoin", "round");
+        svg.setAttribute("aria-hidden", "true");
+
+        var addEl = function (tag, attrs) {
+          var el = document.createElementNS(ns, tag);
+          Object.keys(attrs).forEach(function (k) {
+            el.setAttribute(k, attrs[k]);
+          });
+          svg.appendChild(el);
+        };
+
+        if (type === "grip") {
+          addEl("circle", { cx: "9", cy: "6", r: "1.4", fill: "currentColor", stroke: "none" });
+          addEl("circle", { cx: "15", cy: "6", r: "1.4", fill: "currentColor", stroke: "none" });
+          addEl("circle", { cx: "9", cy: "12", r: "1.4", fill: "currentColor", stroke: "none" });
+          addEl("circle", { cx: "15", cy: "12", r: "1.4", fill: "currentColor", stroke: "none" });
+          addEl("circle", { cx: "9", cy: "18", r: "1.4", fill: "currentColor", stroke: "none" });
+          addEl("circle", { cx: "15", cy: "18", r: "1.4", fill: "currentColor", stroke: "none" });
+        } else if (type === "up") {
+          addEl("path", { d: "M18 15l-6-6-6 6" });
+        } else if (type === "down") {
+          addEl("path", { d: "M6 9l6 6 6-6" });
+        } else if (type === "trash") {
+          addEl("path", { d: "M3 6h18" });
+          addEl("path", { d: "M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" });
+          addEl("path", { d: "M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" });
+        } else if (type === "check") {
+          svg.setAttribute("class", "rule-icon");
+          addEl("circle", { cx: "12", cy: "12", r: "9.5" });
+          addEl("path", { d: "M8.5 12.5l2.3 2.3 4.8-5.2" });
+        } else if (type === "alert") {
+          svg.setAttribute("class", "rule-icon");
+          addEl("circle", { cx: "12", cy: "12", r: "9.5" });
+          addEl("path", { d: "M12 8v4.5" });
+          addEl("circle", { cx: "12", cy: "16", r: "0.9", fill: "currentColor", stroke: "none" });
+        } else if (type === "circle") {
+          svg.setAttribute("class", "rule-icon");
+          addEl("circle", { cx: "12", cy: "12", r: "9.5" });
+        }
+
+        return svg;
+      }
+
+      function switchMode(newMode) {
+        state.mode = newMode;
+        var isBuilder = newMode === "builder";
+        tabBuilder.setAttribute("aria-selected", String(isBuilder));
+        tabBulk.setAttribute("aria-selected", String(!isBuilder));
+        panelBuilder.hidden = !isBuilder;
+        panelBulk.hidden = isBuilder;
+        builderToolbar.hidden = !isBuilder;
+
+        if (!isBuilder) {
+          updateBulkStatus();
+          bulkInput.focus();
+        }
+      }
+
+      function updateBulkStatus() {
+        var raw = bulkInput.value;
+        if (!raw.trim()) {
+          bulkStatus.textContent = "Paste notes above to detect timestamps.";
+          return;
+        }
+        var parsed = parseBulkText(raw);
+        if (parsed.chapters.length === 0) {
+          bulkStatus.textContent = "No valid timestamps detected yet. Try formats like 0:00 Intro or 1.25 - Topic.";
+        } else {
+          var msg = parsed.chapters.length + " chapter" + (parsed.chapters.length === 1 ? "" : "s") + " detected";
+          if (parsed.skippedLines > 0) {
+            msg += " · " + parsed.skippedLines + " line" + (parsed.skippedLines === 1 ? "" : "s") + " without timestamps will be skipped";
+          }
+          bulkStatus.textContent = msg;
+        }
+      }
+
+      function hideUndoBar() {
+        state.undoSnapshot = null;
+        undoBar.hidden = true;
+      }
+
+      function loadExampleData() {
+        hideUndoBar();
+        state.chapters = EXAMPLE_CHAPTERS.map(function (c) {
+          return makeRow(c.time, c.title);
+        });
+        switchMode("builder");
+        renderAll();
+      }
+
+      function updateRowVisualStates(validation) {
+        var rows = chapterListEl.querySelectorAll(".chapter-row");
+        for (var i = 0; i < rows.length; i++) {
+          var rowEl = rows[i];
+          var timeInput = rowEl.querySelector(".input-time");
+          var durEl = rowEl.querySelector(".row-duration");
+          var isInvalid = validation.invalidTimeIndices.indexOf(i) !== -1;
+
+          if (timeInput) {
+            timeInput.classList.toggle("is-invalid", isInvalid);
+            timeInput.setAttribute("aria-invalid", isInvalid ? "true" : "false");
+          }
+
+          if (durEl) {
+            durEl.className = "row-duration";
+            if (isInvalid) {
+              durEl.textContent = "Invalid";
+              durEl.classList.add("is-error");
+            } else if (Object.prototype.hasOwnProperty.call(validation.durationsByIndex, i)) {
+              var diff = validation.durationsByIndex[i];
+              durEl.textContent = formatDurationLabel(diff);
+              if (diff <= 0) {
+                durEl.classList.add("is-error");
+              } else if (diff < 10) {
+                durEl.classList.add("is-short");
+              }
+            } else {
+              durEl.textContent = "—";
+            }
+          }
+        }
+      }
+
+      function renderChapterRows() {
+        chapterListEl.innerHTML = "";
+
+        var placeholders = [
+          { time: "00:00", title: "Intro" },
+          { time: "01:30", title: "Main Topic" },
+          { time: "04:15", title: "Key Takeaways & Outro" }
+        ];
+
+        state.chapters.forEach(function (chapter, index) {
+          var li = document.createElement("li");
+          li.className = "chapter-row";
+          li.draggable = true;
+          li.dataset.index = String(index);
+
+          // Drag-and-drop handlers
+          li.addEventListener("dragstart", function (e) {
+            state.draggedIndex = index;
+            li.classList.add("is-dragging");
+            if (e.dataTransfer) {
+              e.dataTransfer.effectAllowed = "move";
+              e.dataTransfer.setData("text/plain", String(index));
+            }
+          });
+
+          li.addEventListener("dragend", function () {
+            state.draggedIndex = null;
+            li.classList.remove("is-dragging");
+            var allRows = chapterListEl.querySelectorAll(".chapter-row");
+            allRows.forEach(function (r) { r.classList.remove("is-drag-over"); });
+          });
+
+          li.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            if (state.draggedIndex !== null && state.draggedIndex !== index) {
+              li.classList.add("is-drag-over");
+            }
+          });
+
+          li.addEventListener("dragleave", function () {
+            li.classList.remove("is-drag-over");
+          });
+
+          li.addEventListener("drop", function (e) {
+            e.preventDefault();
+            li.classList.remove("is-drag-over");
+            if (state.draggedIndex === null || state.draggedIndex === index) return;
+            var moved = state.chapters.splice(state.draggedIndex, 1)[0];
+            state.chapters.splice(index, 0, moved);
+            state.draggedIndex = null;
+            renderAll();
+          });
+
+          // 1. Drag handle
+          var handle = document.createElement("span");
+          handle.className = "drag-handle";
+          handle.title = "Drag to reorder";
+          handle.setAttribute("aria-hidden", "true");
+          handle.appendChild(createSvgIcon("grip"));
+
+          // 2. Time input
+          var timeInput = document.createElement("input");
+          timeInput.type = "text";
+          timeInput.className = "input-field input-time";
+          timeInput.value = chapter.time;
+          timeInput.placeholder = placeholders[index] ? placeholders[index].time : "00:00";
+          timeInput.setAttribute("aria-label", "Chapter " + (index + 1) + " timestamp");
+          timeInput.setAttribute("inputmode", "numeric");
+          timeInput.setAttribute("autocomplete", "off");
+
+          timeInput.addEventListener("input", function () {
+            hideUndoBar();
+            state.chapters[index].time = timeInput.value;
+            renderOutputsAndValidation();
+          });
+
+          timeInput.addEventListener("blur", function () {
+            var parsed = parseTimestamp(timeInput.value);
+            if (parsed !== null) {
+              var formatted = formatSeconds(parsed);
+              state.chapters[index].time = formatted;
+              timeInput.value = formatted;
+              renderOutputsAndValidation();
+            }
+          });
+
+          // 3. Title input
+          var titleInput = document.createElement("input");
+          titleInput.type = "text";
+          titleInput.className = "input-field";
+          titleInput.value = chapter.title;
+          titleInput.placeholder = placeholders[index] ? placeholders[index].title : "Chapter title";
+          titleInput.setAttribute("aria-label", "Chapter " + (index + 1) + " title");
+          titleInput.setAttribute("autocomplete", "off");
+
+          titleInput.addEventListener("input", function () {
+            hideUndoBar();
+            state.chapters[index].title = titleInput.value;
+            renderOutputsAndValidation();
+          });
+
+          titleInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              addChapterRow(index + 1);
+            }
+          });
+
+          // 4. Duration cell
+          var durEl = document.createElement("span");
+          durEl.className = "row-duration";
+          durEl.textContent = "—";
+          durEl.setAttribute("aria-label", "Chapter " + (index + 1) + " duration");
+
+          // 5. Row controls: Up, Down, Delete
+          var actions = document.createElement("div");
+          actions.className = "row-actions";
+
+          var labelSuffix = chapter.title ? " " + chapter.title : " " + (index + 1);
+
+          var upBtn = document.createElement("button");
+          upBtn.type = "button";
+          upBtn.className = "btn-icon";
+          upBtn.disabled = index === 0;
+          upBtn.title = "Move up";
+          upBtn.setAttribute("aria-label", "Move chapter" + labelSuffix + " up");
+          upBtn.appendChild(createSvgIcon("up"));
+          upBtn.addEventListener("click", function () {
+            moveChapter(index, index - 1);
+          });
+
+          var downBtn = document.createElement("button");
+          downBtn.type = "button";
+          downBtn.className = "btn-icon";
+          downBtn.disabled = index === state.chapters.length - 1;
+          downBtn.title = "Move down";
+          downBtn.setAttribute("aria-label", "Move chapter" + labelSuffix + " down");
+          downBtn.appendChild(createSvgIcon("down"));
+          downBtn.addEventListener("click", function () {
+            moveChapter(index, index + 1);
+          });
+
+          var delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "btn-icon btn-icon-danger";
+          delBtn.title = "Delete chapter";
+          delBtn.setAttribute("aria-label", "Delete chapter" + labelSuffix);
+          delBtn.appendChild(createSvgIcon("trash"));
+          delBtn.addEventListener("click", function () {
+            deleteChapter(index);
+          });
+
+          actions.appendChild(upBtn);
+          actions.appendChild(downBtn);
+          actions.appendChild(delBtn);
+
+          li.appendChild(handle);
+          li.appendChild(timeInput);
+          li.appendChild(titleInput);
+          li.appendChild(durEl);
+          li.appendChild(actions);
+
+          chapterListEl.appendChild(li);
+        });
+      }
+
+      function addChapterRow(insertAt) {
+        hideUndoBar();
+        var targetIndex = typeof insertAt === "number" ? insertAt : state.chapters.length;
+        state.chapters.splice(targetIndex, 0, makeRow("", ""));
+        renderAll();
+
+        var inputs = chapterListEl.querySelectorAll(".input-time");
+        if (inputs[targetIndex]) {
+          inputs[targetIndex].focus();
+        }
+      }
+
+      function moveChapter(fromIndex, toIndex) {
+        if (toIndex < 0 || toIndex >= state.chapters.length) return;
+        hideUndoBar();
+        var item = state.chapters.splice(fromIndex, 1)[0];
+        state.chapters.splice(toIndex, 0, item);
+        renderAll();
+      }
+
+      function deleteChapter(index) {
+        hideUndoBar();
+        state.chapters.splice(index, 1);
+        if (state.chapters.length === 0) {
+          state.chapters.push(makeRow("", ""));
+        }
+        renderAll();
+      }
+
+      function renderValidation(v) {
+        // Summary banner
+        validatorSummary.className = "validator-summary";
+        validatorSummaryText.innerHTML = "";
+
+        if (!v.hasAnyInput) {
+          validatorSummaryText.appendChild(createSvgIcon("circle"));
+          validatorSummaryText.appendChild(document.createTextNode("Enter timestamps to check YouTube chapter rules"));
+        } else if (v.allRulesPassed) {
+          validatorSummary.classList.add("is-valid");
+          validatorSummaryText.appendChild(createSvgIcon("check"));
+          validatorSummaryText.appendChild(document.createTextNode("Ready for YouTube — All 3 chapter rules passed"));
+        } else if (v.invalidTimeIndices.length > 0 || !v.startsAtZero || !v.isAscending || !v.hasMinCount) {
+          validatorSummary.classList.add("is-error");
+          validatorSummaryText.appendChild(createSvgIcon("alert"));
+          validatorSummaryText.appendChild(document.createTextNode("Needs attention before YouTube activates chapters"));
+        } else {
+          validatorSummary.classList.add("is-warn");
+          validatorSummaryText.appendChild(createSvgIcon("alert"));
+          validatorSummaryText.appendChild(document.createTextNode("Almost ready — check the notice below"));
+        }
+
+        // Individual checklist items
+        rulesChecklist.innerHTML = "";
+
+        function addRuleItem(status, title, detail, fixLabel, onFix) {
+          var li = document.createElement("li");
+          li.className = "rule-item is-" + status;
+
+          var iconType = status === "pass" ? "check" : (status === "idle" ? "circle" : "alert");
+          li.appendChild(createSvgIcon(iconType));
+
+          var content = document.createElement("div");
+          content.className = "rule-content";
+
+          var titleEl = document.createElement("span");
+          titleEl.className = "rule-title";
+          titleEl.textContent = title;
+          content.appendChild(titleEl);
+
+          if (detail) {
+            var detailEl = document.createElement("span");
+            detailEl.className = "rule-detail";
+            detailEl.textContent = detail;
+            content.appendChild(detailEl);
+          }
+
+          if (fixLabel && typeof onFix === "function") {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "quick-fix-btn";
+            btn.textContent = fixLabel;
+            btn.addEventListener("click", onFix);
+            content.appendChild(btn);
+          }
+
+          li.appendChild(content);
+          rulesChecklist.appendChild(li);
+        }
+
+        // Rule 1: Starts at 00:00
+        if (!v.hasAnyInput) {
+          addRuleItem("idle", "Starts at 00:00", "First chapter must begin at 00:00.");
+        } else if (v.startsAtZero) {
+          addRuleItem("pass", "Starts at 00:00", "First timestamp starts at 00:00.");
+        } else {
+          addRuleItem(
+            "fail",
+            "Starts at 00:00",
+            "YouTube requires the first timestamp to be 00:00.",
+            "Insert 00:00 Intro at top",
+            function () {
+              hideUndoBar();
+              state.chapters.unshift(makeRow("00:00", "Intro"));
+              renderAll();
+            }
+          );
+        }
+
+        // Rule 2: At least 3 chapters in ascending order
+        if (!v.hasAnyInput) {
+          addRuleItem("idle", "3+ chapters in chronological order", "Add at least 3 timestamps from earliest to latest.");
+        } else if (!v.isAscending) {
+          var orderMsg = v.outOfOrder.length > 0
+            ? "Timestamp " + v.outOfOrder[0].time + " appears after " + v.outOfOrder[0].prevTime + "."
+            : "Duplicate timestamp detected at " + v.duplicateTimes[0].time + ".";
+          addRuleItem(
+            "fail",
+            "3+ chapters in chronological order",
+            orderMsg,
+            v.outOfOrder.length > 0 ? "Auto-Sort timestamps" : null,
+            v.outOfOrder.length > 0 ? function () {
+              state.chapters = sortChaptersChronologically(state.chapters);
+              renderAll();
+            } : null
+          );
+        } else if (!v.hasMinCount) {
+          var remaining = 3 - v.validCount;
+          addRuleItem(
+            "fail",
+            "3+ chapters in chronological order",
+            "Add " + remaining + " more valid timestamp" + (remaining === 1 ? "" : "s") + " (currently " + v.validCount + " of 3)."
+          );
+        } else {
+          addRuleItem("pass", "3+ chapters in chronological order", v.validCount + " chapters listed in ascending order.");
+        }
+
+        // Rule 3: Minimum 10 seconds per chapter
+        if (!v.hasAnyInput || v.validCount < 2) {
+          addRuleItem("idle", "Minimum 10-second chapter length", "Every chapter must last at least 10 seconds.");
+        } else if (!v.isAscending) {
+          addRuleItem("warn", "Minimum 10-second chapter length", "Fix timestamp order to check chapter durations.");
+        } else if (v.shortChapters.length > 0) {
+          var firstShort = v.shortChapters[0];
+          var extra = v.shortChapters.length > 1 ? " (+" + (v.shortChapters.length - 1) + " more)" : "";
+          addRuleItem(
+            "fail",
+            "Minimum 10-second chapter length",
+            "Chapter " + firstShort.chapterNumber + " (\"" + firstShort.title + "\") is " + firstShort.duration + "s — needs at least 10s" + extra + "."
+          );
+        } else {
+          addRuleItem("pass", "Minimum 10-second chapter length", "All chapter intervals are 10 seconds or longer.");
+        }
+
+        // Helpful inline notices for syntax or missing titles
+        if (v.invalidTimeIndices.length > 0) {
+          var badRowNum = v.invalidTimeIndices[0] + 1;
+          addRuleItem(
+            "fail",
+            "Invalid timestamp format",
+            "Row " + badRowNum + " needs MM:SS or HH:MM:SS (seconds and minutes under 60)."
+          );
+        }
+
+        if (v.missingTitleIndices.length > 0 && v.validCount > 0) {
+          var emptyTitleRow = v.missingTitleIndices[0] + 1;
+          addRuleItem(
+            "warn",
+            "Missing chapter title",
+            "Row " + emptyTitleRow + " has a timestamp without a title."
+          );
+        }
+      }
+
+      function renderOutputsAndValidation() {
+        var validation = validateChapters(state.chapters);
+        updateRowVisualStates(validation);
+        renderValidation(validation);
+
+        var outputText = buildDescriptionOutput(state.chapters);
+        var hasOutput = outputText.length > 0;
+
+        if (hasOutput) {
+          outputPreview.classList.remove("is-empty");
+          outputPreview.textContent = outputText;
+          btnCopy.disabled = false;
+
+          var count = validation.validCount;
+          previewMeta.textContent = count + " chapter" + (count === 1 ? "" : "s") + " · " + outputText.length + " chars";
+        } else {
+          outputPreview.classList.add("is-empty");
+          outputPreview.textContent = "Add timestamps and chapter titles on the left, or click Load Example to preview your formatted YouTube description.";
+          btnCopy.disabled = true;
+          previewMeta.textContent = "0 chapters";
+        }
+
+        btnSort.disabled = validation.validCount < 2;
+      }
+
+      function renderAll() {
+        renderChapterRows();
+        renderOutputsAndValidation();
+      }
+
+      function showCopyFeedback() {
+        btnCopy.classList.add("is-copied");
+        btnCopyLabel.textContent = "Copied!";
+        copyLiveRegion.textContent = "Formatted YouTube chapters copied to clipboard.";
+        if (copyResetTimer) {
+          clearTimeout(copyResetTimer);
+        }
+        copyResetTimer = setTimeout(function () {
+          btnCopy.classList.remove("is-copied");
+          btnCopyLabel.textContent = "Copy to Clipboard";
+          copyLiveRegion.textContent = "";
+        }, 2000);
+      }
+
+      function copyOutputToClipboard() {
+        var text = buildDescriptionOutput(state.chapters);
+        if (!text) return;
+
+        var fallbackCopy = function () {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            showCopyFeedback();
+          } catch (_err) {
+            copyLiveRegion.textContent = "Select the preview text and press Ctrl+C or Cmd+C to copy.";
+          }
+          document.body.removeChild(ta);
+        };
+
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+          navigator.clipboard.writeText(text).then(showCopyFeedback).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
+        }
+      }
+
+      // Wire Event Listeners
+      tabBuilder.addEventListener("click", function () {
+        switchMode("builder");
+      });
+
+      tabBulk.addEventListener("click", function () {
+        switchMode("bulk");
+      });
+
+      btnAddRow.addEventListener("click", function () {
+        addChapterRow();
+      });
+
+      btnSort.addEventListener("click", function () {
+        hideUndoBar();
+        state.chapters = sortChaptersChronologically(state.chapters);
+        renderAll();
+      });
+
+      headerExampleBtn.addEventListener("click", loadExampleData);
+
+      bulkInput.addEventListener("input", updateBulkStatus);
+
+      btnBulkSample.addEventListener("click", function () {
+        bulkInput.value = MESSY_SAMPLE_TEXT;
+        updateBulkStatus();
+        bulkInput.focus();
+      });
+
+      btnBulkApply.addEventListener("click", function () {
+        var parsed = parseBulkText(bulkInput.value);
+        if (parsed.chapters.length === 0) {
+          bulkStatus.textContent = "No valid timestamps found. Include times like 00:00 Intro or 1:25 - Topic.";
+          bulkInput.focus();
+          return;
+        }
+        hideUndoBar();
+        state.chapters = parsed.chapters.map(function (c) {
+          return makeRow(c.time, c.title);
+        });
+        switchMode("builder");
+        renderAll();
+      });
+
+      btnCopy.addEventListener("click", copyOutputToClipboard);
+
+      btnClear.addEventListener("click", function () {
+        var hadContent = state.chapters.some(function (c) {
+          return c.time.trim() !== "" || c.title.trim() !== "";
+        }) || bulkInput.value.trim() !== "";
+
+        if (hadContent) {
+          state.undoSnapshot = {
+            chapters: state.chapters.map(function (c) {
+              return { time: c.time, title: c.title };
+            }),
+            bulkText: bulkInput.value
+          };
+          undoBar.hidden = false;
+        }
+
+        state.chapters = createDefaultRows();
+        bulkInput.value = "";
+        updateBulkStatus();
+        renderAll();
+      });
+
+      btnUndo.addEventListener("click", function () {
+        if (!state.undoSnapshot) return;
+        state.chapters = state.undoSnapshot.chapters.map(function (c) {
+          return makeRow(c.time, c.title);
+        });
+        bulkInput.value = state.undoSnapshot.bulkText || "";
+        hideUndoBar();
+        updateBulkStatus();
+        renderAll();
+      });
+
+      // Initial render
+      renderAll();
+    })();
+  </script>
+</body>
+</html>
